@@ -1,4 +1,5 @@
 // Componentes estilizados
+import { Button, ButtonGoogle, ButtonTitle, ButtonTitleGoogle, IconGoogle } from "../../components/Button/Button";
 import { Container } from "../../components/Container/Style";
 import { Input } from "../../components/Input/Style";
 import { LinkMedium } from "../../components/Links/Style";
@@ -22,17 +23,18 @@ export const Login = ({ navigation }) => {
 
             <LinkMedium>Esqueceu sua senha?</LinkMedium>
 
-            {/* <Button>
-                <ButtonTitle></ButtonTitle>
+             <Button>
+                <ButtonTitle>ENTRAR</ButtonTitle>                
             </Button>
 
             <ButtonGoogle>
-                <ButtonTitleGoogle></ButtonTitleGoogle>
+                <IconGoogle source={require("../../assets/img/GOOGLE.png")}/>
+                <ButtonTitleGoogle>ENTRAR COM GOOGLE</ButtonTitleGoogle>
             </ButtonGoogle>
 
             <ContentAccount>
                 <TextAccount></TextAccount>
-            </ContentAccount> */}
+            </ContentAccount> 
 
         </Container>
 
