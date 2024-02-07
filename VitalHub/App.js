@@ -13,6 +13,7 @@ import {RedefinePassword} from './src/screens/RedefinePassword/RedefinePassword'
 // Import das Fonts
 import { useFonts } from 'expo-font';
 import { MontserratAlternates_600SemiBold, MontserratAlternates_500Medium } from '@expo-google-fonts/montserrat-alternates';
+import { Quicksand_500Medium } from '@expo-google-fonts/quicksand';
 
 // Instancia do StackNavigator
 const Stack = createNativeStackNavigator();
@@ -21,7 +22,7 @@ export default function App() {
 
   // Instancia das fonts usando useFonts
   const [fontsLoaded, fontsError] = useFonts({
-    MontserratAlternates_600SemiBold,MontserratAlternates_500Medium
+    MontserratAlternates_600SemiBold,MontserratAlternates_500Medium,Quicksand_500Medium
   })
 
   // Validacao carregamento da font
@@ -39,7 +40,9 @@ export default function App() {
     <NavigationContainer>
 
       {/* componente para navegação */}
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions ={{
+        headerShown: false
+      }}>
 
         <Stack.Screen
         // nome da tela

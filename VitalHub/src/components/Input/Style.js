@@ -1,17 +1,24 @@
 // Import styled da biblioteca styled-components
 import styled from "styled-components";
 
-// Componente Logo estilizada sendo exportada
+// Componente Input estilizado sendo exportado
 export const Input = styled.TextInput.attrs({
     placeholderTextColor: '#34898F'
 })`
     width: 90%;
-    height: 53px;
-    margin-top: 15px;
+    height: 65px;
+    margin-top: 25px;
     padding: 16px;
     border: 2px solid #49B3BA;
     border-radius: 5px;
     color: #34898F;
     font-size:14px;
-    font-family:"MontserratAlternates_600SemiBold"
+    font-family:"MontserratAlternates_600SemiBold";
+`
+// Componente InputCode estilizado sendo exportado
+export const InputCode = styled(Input)`
+    width: 70px;
+    height: 70px;
+    font-size: 52px;
+    font-family:"MontserratAlternates_600SemiBold";
 `
