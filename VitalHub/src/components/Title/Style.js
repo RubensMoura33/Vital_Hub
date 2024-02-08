@@ -8,6 +8,12 @@ export const Title = styled.Text`
     font-family: "MontserratAlternates_600SemiBold";
     margin-bottom: 5px;
 `
+//Componente ProfileTitle estilizado sendo exportada
+export const ProfileTitle = styled(Title)`
+    align-self: center;
+    margin-top: 20px;
+` 
+
 // Componente TextAccount estilizado sendo exportada
 export const TextAccount = styled.Text`
     font-size: 16px;

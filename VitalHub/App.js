@@ -9,11 +9,15 @@ import { Register } from './src/screens/Register/Register';
 import {EmailCode} from './src/screens/EmailCode/EmailCode'
 import {RecoverPassword} from './src/screens/RecoverPassword/RecoverPassword'
 import {RedefinePassword} from './src/screens/RedefinePassword/RedefinePassword'
+import { Profile } from './src/screens/Profile/Profile';
 
 // Import das Fonts
 import { useFonts } from 'expo-font';
 import { MontserratAlternates_600SemiBold, MontserratAlternates_500Medium } from '@expo-google-fonts/montserrat-alternates';
-import { Quicksand_500Medium } from '@expo-google-fonts/quicksand';
+import { Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
+import { StatusBar } from 'react-native';
+
+
 
 // Instancia do StackNavigator
 const Stack = createNativeStackNavigator();
@@ -22,7 +26,7 @@ export default function App() {
 
   // Instancia das fonts usando useFonts
   const [fontsLoaded, fontsError] = useFonts({
-    MontserratAlternates_600SemiBold,MontserratAlternates_500Medium,Quicksand_500Medium
+    MontserratAlternates_600SemiBold,MontserratAlternates_500Medium,Quicksand_500Medium,Quicksand_600SemiBold
   })
 
   // Validacao carregamento da font
@@ -38,12 +42,17 @@ export default function App() {
 
     // Envolve a estrutura da navegação
     <NavigationContainer>
-
+      <StatusBar  />
       {/* componente para navegação */}
       <Stack.Navigator screenOptions ={{
         headerShown: false
       }}>
 
+        <Stack.Screen
+        name='Profile'
+        component={Profile}
+        options={{title: 'NavProfileigation'}}
+        />
         <Stack.Screen
         // nome da tela
         name='Navigation'

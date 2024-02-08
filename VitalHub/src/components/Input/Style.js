@@ -15,6 +15,16 @@ export const Input = styled.TextInput.attrs({
     font-size:14px;
     font-family:"MontserratAlternates_600SemiBold";
 `
+export const InputProfile = styled(Input).attrs({placeholderTextColor: '#33303E'})`
+    
+    border-radius: 0px;
+    margin-top: 0px;
+    border: none;
+    color: #33303E;
+    background-color: #F5F3F3;
+    font-family: "MontserratAlternates_500Medium";
+`
+
 // Componente InputCode estilizado sendo exportado
 export const InputCode = styled(Input)`
     width: 70px;

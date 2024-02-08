@@ -8,6 +8,7 @@ export const SubTitle = styled.Text`
     text-align: center;
     margin-top: 20px;
 `
+
 // Componente ExEmail estilizado sendo exportado
 export const ExEmail = styled(SubTitle)`
     color: #496BBA;
