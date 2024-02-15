@@ -1,17 +1,20 @@
 // Import styled da biblioteca styled-components
 import styled from "styled-components";
 
+import {LinearGradient} from 'expo-linear-gradient'
+
 // Componente Container estilizado sendo exportado
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
     flex: 1;
     align-items: center;
     background-color: #FAFAFA;
 `
 // Componente ContainerEdit estilizado sendo exportado
-export const ContainerEdit = styled.SafeAreaView`
+export const ContainerEdit = styled.View`
     flex: 1;
     align-items: center;
     background-color: #FAFAFA;
+    margin-top: 60px;
 `
 // Componente ContentAccount estilizado sendo exportado
 export const ContentAccount = styled.View`
@@ -35,9 +38,11 @@ export const RowView = styled.View`
     flex-direction: row;
     gap: 15px;
 `
-// Componente ContainerProfile estilizado sendo exportado
-export const ContainerProfile = styled.ScrollView`
+export const ViewSubTitle = styled.View`
+    flex-direction: row;
+    gap: 20px;
 `
+
 // Componente ViewTitle estilizado sendo exportado
 export const ViewTitle = styled.View`
 width: 80%;
@@ -51,4 +56,21 @@ align-self: center;
 align-items: center;
 justify-content: center;
 margin-top: 290px;
+`
+
+export const ContainerHeader = styled(LinearGradient).attrs({
+    colors : ['#60BFC5', '#496BBA'],
+    start: {x: -0.05, y: 1.08},
+    end:{x:1, y:0}
+})
+`
+    width: 100%;
+    height: 144px;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+`
+
+// Componente ContainerProfile estilizado sendo exportado
+export const ContainerProfile = styled.ScrollView`
+    background-color: #FAFAFA
 `

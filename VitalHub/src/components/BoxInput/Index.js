@@ -1,5 +1,5 @@
-import { ProfileInput } from "../Input/Index"
-import { Label } from "../Label/Index"
+import { InputProfile } from "../Input/Style"
+import { InputLabel } from "../Label/Style"
 import { Content } from "./Style"
 
 export const BoxInput = ({
@@ -7,17 +7,23 @@ export const BoxInput = ({
     textLabel,
     placeholder,
     value = null,
-    editable
+    editable,
+    borderStyle,
+    fieldHeight
 }) => {
     return(
         <Content fieldWidth={fieldWidth}>
-        <Label
-        textLabel={textLabel}/>
-        <ProfileInput
+
+        <InputLabel>{textLabel}</InputLabel>
+
+        <InputProfile
+        fieldHeight={fieldHeight}
         placeholder={placeholder}
         value={value}
         editable={editable}
+        borderStyle={borderStyle}
         />
+
         </Content>
     )
 }

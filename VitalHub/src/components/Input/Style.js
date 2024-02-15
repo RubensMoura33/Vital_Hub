@@ -16,10 +16,10 @@ export const Input = styled.TextInput.attrs({
     font-family:"MontserratAlternates_600SemiBold";
 `
 export const InputProfile = styled(Input).attrs({placeholderTextColor: '#33303E'})`
-    
+    border-color: ${props => props.borderStyle || "transparent"};
+    height: ${props => props.fieldHeight || 65};
     border-radius: 0px;
     margin-top: 0px;
-    border: none;
     color: #33303E;
     background-color: #F5F3F3;
     font-family: "MontserratAlternates_500Medium";

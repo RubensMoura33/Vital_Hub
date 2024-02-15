@@ -16,6 +16,8 @@ import { useFonts } from 'expo-font';
 import { MontserratAlternates_600SemiBold, MontserratAlternates_500Medium } from '@expo-google-fonts/montserrat-alternates';
 import { Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
 import { StatusBar } from 'react-native';
+import { MedicalRecord } from './src/screens/MedicalRecord/MedicalRecord';
+import { Home } from './src/screens/Home/Home';
 
 
 
@@ -49,17 +51,18 @@ export default function App() {
       }}>
 
         <Stack.Screen
-        name='Profile'
-        component={Profile}
-        options={{title: 'NavProfileigation'}}
-        />
-        <Stack.Screen
         // nome da tela
         name='Navigation'
         // componente que sera renderizado
         component={Navigation}
         // titulo da pagina
         options={{title: 'Navigation'}}
+        />
+
+        <Stack.Screen
+        name='Profile'
+        component={Profile}
+        options={{title: 'Profile'}}
         />
 
         <Stack.Screen
@@ -86,6 +89,16 @@ export default function App() {
         name='RedefinePassword'
         component={RedefinePassword}
         options={{title: 'RedefinePassword'}}
+        />
+        <Stack.Screen
+        name='MedicalRecord'
+        component={MedicalRecord}
+        options={{title: 'MedicalRecord'}}
+        />
+        <Stack.Screen
+        name='Home'
+        component={Home}
+        options={{title: 'Home'}}
         />
 
       </Stack.Navigator>
