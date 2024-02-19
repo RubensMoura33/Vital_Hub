@@ -65,9 +65,17 @@ export const ContainerHeader = styled(LinearGradient).attrs({
 })
 `
     width: 100%;
-    height: 144px;
-    border-bottom-left-radius:15px;
-    border-bottom-right-radius:15px;
+    height: 160px;
+    padding: 20px;
+    padding-bottom: 25px;
+    
+
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 0px 4px 15px #00000014;
 `
 
 // Componente ContainerProfile estilizado sendo exportado
