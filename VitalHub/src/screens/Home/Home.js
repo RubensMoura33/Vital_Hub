@@ -6,11 +6,11 @@ import { BoxButtonHome } from "./Style";
 import { ButtonHome } from "../../components/ButtonHome/ButtonHome";
 
 const Consultas = [
-  { id: 1, nome: "Rubens", situacao: "pendente" },
-  { id: 2, nome: "Carlos", situacao: "cancelado" },
-  { id: 3, nome: "Gabriel", situacao: "realizado" },
-  { id: 4, nome: "Edu", situacao: "pendente" },
-  { id: 5, nome: "Wanderson", situacao: "pendente" },
+  { id: 1, nome: "Rubens", situacao: "pendente"},
+  { id: 2, nome: "Carlos", situacao: "cancelado"},
+  { id: 3, nome: "Gabriel", situacao: "realizado"},
+  { id: 4, nome: "Edu", situacao: "pendente"},
+  { id: 5, nome: "Wanderson", situacao: "pendente"},
 ];
 
 export const Home = () => {
@@ -40,6 +40,9 @@ export const Home = () => {
           onPress={() => setStatusList("cancelado")}
         />
       </BoxButtonHome>
+
+      
+
     </Container>
   );
 };

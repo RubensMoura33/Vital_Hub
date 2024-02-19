@@ -27,6 +27,7 @@ export const TextLink = styled(TextAccount)`
 export const TextUnderlined = styled.Text`
     font-size: 16px;
     margin-top: 50px;
+    margin-bottom: 30px;
     align-self: center;
     text-decoration: underline;
     color: #344F8F;
