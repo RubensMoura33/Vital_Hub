@@ -6,6 +6,7 @@ import { BoxButtonHome } from "./Style";
 import { ButtonHome } from "../../components/ButtonHome/ButtonHome";
 import { ListComponent } from "../../components/List/Style";
 import { Card } from "../../components/Card/Card";
+import CancellationModal from "../../components/CancellationModal/CancellationModal";
 
 const Consultas = [
   { id: 1, nome: "Rubens", situacao: "pendente"},
@@ -16,7 +17,10 @@ const Consultas = [
 ];
 
 export const Home = () => {
+
   const [statusList, setStatusList] = useState("pendente");
+  const [showModalCancel, setShowModalCancel] = useState(false)
+  const [showModalAppointment, setShowModalAppointment] = useState(false)
   return (
     <Container>
       <Header />
@@ -50,10 +54,15 @@ export const Home = () => {
 
                 renderItem={({ item }) =>
                     statusList == item.situacao && (
-                        <Card nome= {item.nome} situacao={item.situacao}/>
+                        <Card nome= {item.nome} situacao={item.situacao}
+                        onPressCancel={() => setShowModalCancel(true)}
+                        onPressAppointment={() => setShowModalAppointment(true)}/>
                     )}
             />
-
+            <CancellationModal
+            visible={showModalCancel}
+            setShowModalCancel={setShowModalCancel}
+            />
       
 
     </Container>
