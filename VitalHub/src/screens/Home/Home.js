@@ -4,6 +4,8 @@ import { Container } from "../../components/Container/Style";
 import { Header } from "../../components/Header/Header";
 import { BoxButtonHome } from "./Style";
 import { ButtonHome } from "../../components/ButtonHome/ButtonHome";
+import { ListComponent } from "../../components/List/Style";
+import { Card } from "../../components/Card/Card";
 
 const Consultas = [
   { id: 1, nome: "Rubens", situacao: "pendente"},
@@ -40,6 +42,17 @@ export const Home = () => {
           onPress={() => setStatusList("cancelado")}
         />
       </BoxButtonHome>
+
+      {/* Lista (FlatList)*/}
+      <ListComponent
+                data={Consultas}
+                keyExtractor={(item) => item.id}
+
+                renderItem={({ item }) =>
+                    statusList == item.situacao && (
+                        <Card nome= {item.nome} situacao={item.situacao}/>
+                    )}
+            />
 
       
 
