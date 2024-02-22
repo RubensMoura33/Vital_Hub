@@ -17,8 +17,8 @@ export const Navigation = ({ navigation }) => {
         </View>  
         <View style={{flex: 1, alignItems: "center", justifyContent:"center"}}>
             <Button 
-            title="MedicalRecord"
-            onPress={() => navigation.navigate("MedicalRecord")}/>
+            title="InsertMedicalRecord"
+            onPress={() => navigation.navigate("InsertMedicalRecord")}/>
         </View>  
         <View style={{flex: 1, alignItems: "center", justifyContent:"center"}}>
             <Button 

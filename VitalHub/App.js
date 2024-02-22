@@ -16,8 +16,8 @@ import { useFonts } from 'expo-font';
 import { MontserratAlternates_600SemiBold, MontserratAlternates_500Medium } from '@expo-google-fonts/montserrat-alternates';
 import { Quicksand_400Regular,Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
 import { StatusBar } from 'react-native';
-import { MedicalRecord } from './src/screens/MedicalRecord/MedicalRecord';
 import { Home } from './src/screens/Home/Home';
+import { InsertMedicalRecord } from './src/screens/InsertMedicalRecord/InsertMedicalRecord';
 
 
 
@@ -91,9 +91,9 @@ export default function App() {
         options={{title: 'RedefinePassword'}}
         />
         <Stack.Screen
-        name='MedicalRecord'
-        component={MedicalRecord}
-        options={{title: 'MedicalRecord'}}
+        name='InsertMedicalRecord'
+        component={InsertMedicalRecord}
+        options={{title: 'InsertMedicalRecord'}}
         />
         <Stack.Screen
         name='Home'

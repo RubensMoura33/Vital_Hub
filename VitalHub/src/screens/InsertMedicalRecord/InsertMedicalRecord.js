@@ -5,7 +5,7 @@ import { ProfileImage } from "../../components/Images/Style"
 import { SubTitle } from "../../components/SubTitle/Style"
 import { ProfileTitle, TextUnderlined } from "../../components/Title/Style"
 
-export const MedicalRecord = () => {
+export const InsertMedicalRecord = () => {
     return(
         <ContainerProfile>
             <ProfileImage source={require("../../assets/img/Profile.jpg")} />
@@ -30,11 +30,11 @@ export const MedicalRecord = () => {
 
             <BoxInput
             textLabel={'Prescrição médica'}
-            fieldHeight={120}
+            fieldHeight={"120px"}
             borderStyle={'#49B3BA'}
             placeholder={"Prescrição médica"}
             textColor={'#49B3BA'}
-            paddingBottom={70}/>
+            paddingBottom={"70px"}/>
 
             <Button>
                 <ButtonTitle>SALVAR</ButtonTitle>

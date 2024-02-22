@@ -7,7 +7,6 @@ import {
   ViewModalAppointment,
   ViewSubTitles,
 } from "./Style";
-import { TextUnderlined, Title } from "../Title/Style";
 import { SubTitle } from "../SubTitle/Style";
 import { Button, ButtonTitle } from "../Button/Style";
 
@@ -18,7 +17,7 @@ const ModalAppointment = ({
   ...rest
 }) => {
   const onPressHandler = () => {
-    navigation.navigate("MedicalRecord");
+    navigation.navigate("InsertMedicalRecord");
     setShowModalAppointment(false);
   };
 

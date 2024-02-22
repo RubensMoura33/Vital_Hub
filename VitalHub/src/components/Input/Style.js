@@ -19,13 +19,13 @@ export const InputProfile = styled(Input).attrs(props => ({
     placeholderTextColor: props.textColor || '#33303E'
 }))`
     border-color: ${props => props.borderStyle || "transparent"};
-    height: ${props => props.fieldHeight || 65};
+    height: ${props => props.fieldHeight || "65px"};
     border-radius: 7px;
     margin-top: 0px;
     color: ${props => props.textColor || "#33303E"};
     background-color: #F5F3F3;
     font-family: "MontserratAlternates_500Medium";
-    padding-bottom: ${props => props.paddingBottom || 15};
+    padding-bottom: ${props => props.paddingBottom || "15px"};
 `
 
 // Componente InputCode estilizado sendo exportado
