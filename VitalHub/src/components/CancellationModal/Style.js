@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Title } from "../Title/Style";
 
 export const ViewModal = styled.View`
 flex: 1;
@@ -14,4 +15,7 @@ padding: 20px;
 border-radius: 10px;
 width: 90%;
 align-items: center;
+`
+export const TitleModal = styled(Title)`
+
 `

@@ -7,6 +7,7 @@ import { ButtonHome } from "../../components/ButtonHome/ButtonHome";
 import { ListComponent } from "../../components/List/Style";
 import { Card } from "../../components/Card/Card";
 import CancellationModal from "../../components/CancellationModal/CancellationModal";
+import ModalAppointment from "../../components/ModalAppointment/ModalAppointment";
 
 const Consultas = [
   { id: 1, nome: "Rubens", situacao: "pendente"},
@@ -62,6 +63,10 @@ export const Home = () => {
             <CancellationModal
             visible={showModalCancel}
             setShowModalCancel={setShowModalCancel}
+            />
+            <ModalAppointment
+            visible={showModalAppointment}
+            setShowModalAppointment={setShowModalAppointment}
             />
       
 
