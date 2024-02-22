@@ -7,6 +7,7 @@ export const SubTitle = styled.Text`
     font-family: "Quicksand_500Medium";
     text-align: center;
     margin-top: 20px;
+    color: #4E4B59;
 `
 
 // Componente ExEmail estilizado sendo exportado

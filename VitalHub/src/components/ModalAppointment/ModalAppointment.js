@@ -11,7 +11,17 @@ import { TextUnderlined, Title } from "../Title/Style";
 import { SubTitle } from "../SubTitle/Style";
 import { Button, ButtonTitle } from "../Button/Style";
 
-const ModalAppointment = ({ visible, setShowModalAppointment, ...rest }) => {
+const ModalAppointment = ({
+  navigation,
+  visible,
+  setShowModalAppointment,
+  ...rest
+}) => {
+  const onPressHandler = () => {
+    navigation.navigate("MedicalRecord");
+    setShowModalAppointment(false);
+  };
+
   return (
     <Modal {...rest} visible={visible} transparent={true} animationType="fade">
       <ViewModalAppointment>
@@ -24,7 +34,7 @@ const ModalAppointment = ({ visible, setShowModalAppointment, ...rest }) => {
             <SubTitle>22 anos</SubTitle>
             <SubTitle>niccole.sarga@gmail.com</SubTitle>
           </ViewSubTitles>
-          <Button>
+          <Button onPress={() => onPressHandler()}>
             <ButtonTitle>INSERIR PRONTUÁRIO</ButtonTitle>
           </Button>
           <TextUnderlinedModal onPress={() => setShowModalAppointment(false)}>

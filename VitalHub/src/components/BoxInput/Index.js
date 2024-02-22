@@ -10,7 +10,8 @@ export const BoxInput = ({
     editable,
     borderStyle,
     fieldHeight,
-    textColor
+    textColor,
+    paddingBottom
 }) => {
     return(
         <Content fieldWidth={fieldWidth}>
@@ -24,6 +25,7 @@ export const BoxInput = ({
         editable={editable}
         borderStyle={borderStyle}
         textColor={textColor}
+        paddingBottom={paddingBottom}
         />
 
         </Content>

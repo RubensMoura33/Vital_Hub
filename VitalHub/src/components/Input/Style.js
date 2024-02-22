@@ -25,6 +25,7 @@ export const InputProfile = styled(Input).attrs(props => ({
     color: ${props => props.textColor || "#33303E"};
     background-color: #F5F3F3;
     font-family: "MontserratAlternates_500Medium";
+    padding-bottom: ${props => props.paddingBottom || 15};
 `
 
 // Componente InputCode estilizado sendo exportado

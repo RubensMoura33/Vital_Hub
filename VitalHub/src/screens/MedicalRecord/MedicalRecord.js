@@ -33,7 +33,8 @@ export const MedicalRecord = () => {
             fieldHeight={120}
             borderStyle={'#49B3BA'}
             placeholder={"Prescrição médica"}
-            textColor={'#49B3BA'}/>
+            textColor={'#49B3BA'}
+            paddingBottom={70}/>
 
             <Button>
                 <ButtonTitle>SALVAR</ButtonTitle>

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Title } from "../Title/Style";
+import { SubTitle } from "../SubTitle/Style";
+import { TextUnderlined } from "../Title/Style";
 
 export const ViewModal = styled.View`
 flex: 1;
@@ -18,4 +20,11 @@ align-items: center;
 `
 export const TitleModal = styled(Title)`
 
+`
+export const SubTitleModal = styled(SubTitle)`
+align-self: center;
+font-size: 21px;
+`
+export const TextUnderlinedModal = styled(TextUnderlined)`
+margin-top: 25px;
 `

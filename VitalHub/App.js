@@ -14,7 +14,7 @@ import { Profile } from './src/screens/Profile/Profile';
 // Import das Fonts
 import { useFonts } from 'expo-font';
 import { MontserratAlternates_600SemiBold, MontserratAlternates_500Medium } from '@expo-google-fonts/montserrat-alternates';
-import { Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
+import { Quicksand_400Regular,Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
 import { StatusBar } from 'react-native';
 import { MedicalRecord } from './src/screens/MedicalRecord/MedicalRecord';
 import { Home } from './src/screens/Home/Home';
@@ -28,7 +28,7 @@ export default function App() {
 
   // Instancia das fonts usando useFonts
   const [fontsLoaded, fontsError] = useFonts({
-    MontserratAlternates_600SemiBold,MontserratAlternates_500Medium,Quicksand_500Medium,Quicksand_600SemiBold
+    MontserratAlternates_600SemiBold,MontserratAlternates_500Medium,Quicksand_500Medium,Quicksand_600SemiBold, Quicksand_400Regular
   })
 
   // Validacao carregamento da font
