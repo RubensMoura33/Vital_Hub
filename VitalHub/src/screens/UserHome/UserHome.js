@@ -2,12 +2,16 @@ import { useState } from "react";
 import { CalendarHome } from "../../components/CalendarHome/CalendarHome";
 import { Container } from "../../components/Container/Style";
 import { Header } from "../../components/Header/Header";
-import { BoxButtonHome } from "./Style";
+import { BoxButtonHome } from "../Home/Style";
 import { ButtonHome } from "../../components/ButtonHome/ButtonHome";
 import { ListComponent } from "../../components/List/Style";
 import { Card } from "../../components/Card/Card";
 import CancellationModal from "../../components/CancellationModal/CancellationModal";
 import ModalAppointment from "../../components/ModalAppointment/ModalAppointment";
+import { FontAwesome5 } from '@expo/vector-icons';
+import { BoxIcon } from "./Style";
+import ModalSchedule from "../../components/ModalSchedule/ModalSchedule";
+import { TouchableOpacity } from "react-native";
 
 const Consultas = [
   { id: 1, nome: "Rubens", situacao: "pendente"},
@@ -17,16 +21,16 @@ const Consultas = [
   { id: 5, nome: "Wanderson", situacao: "pendente"},
 ];
 
-export const Home = ({navigation}) => {
+export const UserHome = ({navigation}) => {
 
-  const [statusList, setStatusList] = useState("pendente");
+  const [statusList, setStatusList] = useState("pendente")
   const [showModalCancel, setShowModalCancel] = useState(false)
   const [showModalAppointment, setShowModalAppointment] = useState(false)
-  
+  const [showModalSchedule, setShowModalSchedule] = useState(false)
   return (
     <Container>
       <Header
-      name={"Dr. Caludio"} />
+      name={"Richard Kosta"} />
 
       <CalendarHome />
 
@@ -62,16 +66,15 @@ export const Home = ({navigation}) => {
                         onPressAppointment={() => setShowModalAppointment(true)}/>
                     )}
             />
-            <CancellationModal
-            visible={showModalCancel}
-            setShowModalCancel={setShowModalCancel}
+            <ModalSchedule
+            visible={showModalSchedule}
+            setShowModalSchedule ={setShowModalSchedule}
             />
-            <ModalAppointment
-            visible={showModalAppointment}
-            setShowModalAppointment={setShowModalAppointment}
-            navigation={navigation}
-            />
-      
+            <TouchableOpacity  onPress={() => setShowModalSchedule(true)}>
+            <BoxIcon>
+            <FontAwesome5 name="stethoscope" size={24} color="white" />
+            </BoxIcon>
+            </TouchableOpacity>
 
     </Container>
   );

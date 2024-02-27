@@ -25,6 +25,11 @@ export const Navigation = ({ navigation }) => {
             title="Home"
             onPress={() => navigation.navigate("Home")}/>
         </View>  
+        <View style={{flex: 1, alignItems: "center", justifyContent:"center"}}>
+            <Button 
+            title="UserHome"
+            onPress={() => navigation.navigate("UserHome")}/>
+        </View>  
     </>
 
     );

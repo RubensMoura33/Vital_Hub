@@ -18,6 +18,7 @@ import { Quicksand_400Regular,Quicksand_500Medium, Quicksand_600SemiBold } from 
 import { StatusBar } from 'react-native';
 import { Home } from './src/screens/Home/Home';
 import { InsertMedicalRecord } from './src/screens/InsertMedicalRecord/InsertMedicalRecord';
+import { UserHome } from './src/screens/UserHome/UserHome';
 
 
 
@@ -100,7 +101,11 @@ export default function App() {
         component={Home}
         options={{title: 'Home'}}
         />
-
+        <Stack.Screen
+        name='UserHome'
+        component={UserHome}
+        options={{title: 'UserHome'}}
+        />
       </Stack.Navigator>
 
     </NavigationContainer>
