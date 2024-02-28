@@ -19,6 +19,8 @@ import { StatusBar } from 'react-native';
 import { Home } from './src/screens/Home/Home';
 import { InsertMedicalRecord } from './src/screens/InsertMedicalRecord/InsertMedicalRecord';
 import { UserHome } from './src/screens/UserHome/UserHome';
+import SelectClinic from './src/screens/SelectClinic/SelectClinic';
+
 
 
 
@@ -105,6 +107,11 @@ export default function App() {
         name='UserHome'
         component={UserHome}
         options={{title: 'UserHome'}}
+        />
+        <Stack.Screen
+        name='SelectClinic'
+        component={SelectClinic}
+        options={{title: 'SelectClinic'}}
         />
       </Stack.Navigator>
 

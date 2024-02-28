@@ -1,30 +1,37 @@
 import { Modal } from "react-native"
-import { ButtonModal, ButtonTextModal, TitleModal, ViewContent, ViewModalSchedule, ViewRow } from "./Style"
+import { ButtonContinue, ButtonModal, ButtonTextModal, TitleModal, ViewContent, ViewModalSchedule, ViewRow } from "./Style"
 import { TextUnderlined, Title } from "../Title/Style"
 import { BoxInput } from "../BoxInput/Index"
 import { useState } from "react"
 import { Button, ButtonTitle } from "../Button/Style"
 
 
-const ModalSchedule = ({ setShowModalSchedule, visible, ...rest}) => {
+const ModalSchedule = ({ navigation, setShowModalSchedule, visible, clickButton, clickText,  ...rest}) => {
 
-const [statusList, setStatusList] = useState("pendente");
+const [statusList, setStatusList] = useState("rotina");
 
+
+    function closeModal () {
+        navigation.navigate("SelectClinic")
+        setShowModalSchedule(false)
+    }
     return(
         <Modal {...rest} visible={visible} transparent={true} animationType="fade">
             <ViewModalSchedule>
-                <ViewContent>
+                <ViewContent >
                     <TitleModal>Agendar consulta</TitleModal>
                     <ViewRow>
 
-                    <ButtonModal>
-                        <ButtonTextModal>gABRIEL</ButtonTextModal>
+                    <ButtonModal clickButton={statusList === "rotina"} onPress={() => setStatusList("rotina")}>
+                        <ButtonTextModal clickText={statusList === "rotina"}>Rotina</ButtonTextModal>
                     </ButtonModal>
-                    <ButtonModal>
-                        <ButtonTextModal></ButtonTextModal>
+
+                    <ButtonModal clickButton={statusList === "exame"} onPress={() => setStatusList("exame")}>
+                        <ButtonTextModal clickText={statusList === "exame"}>Exame</ButtonTextModal>
                     </ButtonModal>
-                    <ButtonModal>
-                        <ButtonTextModal></ButtonTextModal>
+
+                    <ButtonModal clickButton={statusList === "urgencia"} onPress={() => setStatusList("urgencia")}>
+                        <ButtonTextModal clickText={statusList === "urgencia"}>Urgencia</ButtonTextModal>
                     </ButtonModal>
 
                     </ViewRow>
@@ -36,9 +43,9 @@ const [statusList, setStatusList] = useState("pendente");
                     textColor={'#49B3BA'}/>
 
                     
-                    <Button>
+                    <ButtonContinue onPress={() => closeModal()}>
                         <ButtonTitle>CONTINUAR</ButtonTitle>
-                    </Button>
+                    </ButtonContinue>
 
                     <TextUnderlined onPress={() => setShowModalSchedule(false)}>Cancelar</TextUnderlined>
                 </ViewContent>

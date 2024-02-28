@@ -69,6 +69,7 @@ export const UserHome = ({navigation}) => {
             <ModalSchedule
             visible={showModalSchedule}
             setShowModalSchedule ={setShowModalSchedule}
+            navigation={navigation}
             />
             <TouchableOpacity  onPress={() => setShowModalSchedule(true)}>
             <BoxIcon>

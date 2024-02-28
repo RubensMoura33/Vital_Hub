@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Title } from "../Title/Style";
-import { ButtonHome } from "../ButtonHome/ButtonHome";
 import { ButtonText } from "../ButtonHome/Style";
+import { Button } from "../Button/Style";
 
 export const ViewModalSchedule = styled.View`
 flex: 1;
@@ -23,18 +23,32 @@ margin-top:60px;
 `
 export const ButtonModal = styled.TouchableOpacity`
     width: 27%;
-    border: 2px solid #60BFC5;
     border-radius: 5px;
     height: 55px;
     margin-top: 20px;
     align-items: center;
     justify-content: center;
+
+    ${props => props.clickButton ? css`
+    background-color: #60BFC5;
+  `: css`
+    background-color: transparent;
+    border: 2px solid #60BFC5;
+  `}
 `
 export const ViewRow = styled.View`
 flex-direction: row;
 gap: 20px;
 `
 
-export const ButtonTextModal = styled(ButtonText)
+export const ButtonTextModal = styled(ButtonText)`
+
+${props => props.clickText ? css`
+    color: #fbfbfb;
+  `: css`
+  color: #60BFC5;
+  `}
 `
+export const ButtonContinue = styled(Button) `
+    margin-top: 200px;
 `
