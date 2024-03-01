@@ -33,7 +33,7 @@ height: 60%;
 justify-content: space-evenly;
 `
 export const ProfileName = styled(Title)`
-font-size: 16px;
+font-size: 18px;
 `
 
 export const ProfileData = styled.View`
