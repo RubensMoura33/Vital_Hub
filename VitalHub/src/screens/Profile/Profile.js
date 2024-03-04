@@ -84,8 +84,8 @@ export const Profile = ({ navigation }) => {
             />
 
             <BoxInput
-              textLabel="Data de nascimento:"
-              placeholder="04/05/1999"
+              textLabel="CPF"
+              placeholder="859********"
               editable={true}
             />
 

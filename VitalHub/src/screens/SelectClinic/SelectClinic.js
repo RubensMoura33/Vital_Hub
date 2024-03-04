@@ -36,7 +36,7 @@ return(
         <ButtonClinic onPress ={() => navigation.navigate("SelectDoctor")}>
             <ButtonTitle>CONFIRMAR</ButtonTitle>
         </ButtonClinic>
-        <TextCancel>Cancelar</TextCancel>
+        <TextCancel onPress ={() => navigation.navigate("Home")}>Cancelar</TextCancel>
     </Container>
 )
 }

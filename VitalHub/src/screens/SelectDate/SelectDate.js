@@ -4,6 +4,8 @@ import { TextCancel, TitleSelect } from "../SelectClinic/Style";
 import FullCalender from "../../components/CalendarSelectDate/CalendarSelectDate";
 import InputSelect from "../../components/InputSelect/InputSelect";
 import { Button, ButtonTitle } from "../../components/Button/Style";
+import { ModalResumeAppointment } from "../../components/ModalResumeAppointment/ModalResumeAppointment";
+
 
 export const SelectDate = ({navigation}) => {
     const [selectedDate, setSelectedDate] = useState();
@@ -30,19 +32,19 @@ export const SelectDate = ({navigation}) => {
                 />
             {/* onPress={() => {setShowModalResume(true)}} */}
 
-            <ButtonFull>
+            <ButtonFull onPress={() => setShowModalResume(true)}>
                 <ButtonTitle>CONFIRMAR</ButtonTitle>
             </ButtonFull>
 
-                {/* <ModalResumeAppointment
+                <ModalResumeAppointment
                 visible={showModalResume}
                 navigation={navigation}
                 setShowModalResume={setShowModalResume}
                 dataConsulta={selectedDate}
                 horarioConsulta={selectedTime}
-                /> */}
+                />
 
-            <TextCancel onPress={() => {navigation.navigate("HomeUser")}}>Cancelar</TextCancel>
+            <TextCancel onPress={() => {navigation.navigate("Home")}}>Cancelar</TextCancel>
         </ContainerSelectDate>
     )
 }

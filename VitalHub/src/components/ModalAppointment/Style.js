@@ -13,7 +13,7 @@ justify-content: center;
 export const ContentAppointment = styled.View`
 background-color: white;
 padding: 20px;
-border-radius: 10px;
+border-radius: 15px;
 width: 90%;
 align-items: center;
 `
