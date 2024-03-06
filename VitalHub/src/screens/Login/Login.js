@@ -8,6 +8,10 @@ import { TextAccount, TextLink, Title } from "../../components/Title/Style";
 
 
 export const Login = ({ navigation }) => {
+
+    async function Login (){
+        navigation.replace("Main")
+    }
     return(
         <Container>
             
@@ -24,7 +28,7 @@ export const Login = ({ navigation }) => {
 
             <LinkMedium onPress={() => navigation.navigate("RecoverPassword")}>Esqueceu sua senha?</LinkMedium>
 
-             <Button>
+             <Button onPress={() => Login()}>
                 <ButtonTitle>ENTRAR</ButtonTitle>                
             </Button>
 

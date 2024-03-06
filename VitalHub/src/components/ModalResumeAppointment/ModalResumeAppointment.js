@@ -10,7 +10,12 @@ export const ModalResumeAppointment = ({navigation,
     setShowModalResume,
     ...rest
 }) => {
+    function onClick () {
+        navigation.navigate("Home")
+        setShowModalResume(false)
+    }
     return(
+        
         <Modal {...rest} visible={visible} transparent={true} animationType="fade">
             <ViewModalAppointment>
                 <ContentAppointment>
@@ -38,10 +43,10 @@ export const ModalResumeAppointment = ({navigation,
                     <TextData>Rotina</TextData>
                     </ViewData>
 
-                    <ButtonModal>
+                    <ButtonModal onPress={() => onClick()}>
                         <ButtonTitle>CONFIRMAR</ButtonTitle>
                     </ButtonModal>
-                    <TextUnderlinedModal onPress={() => {navigation.navigate("Home")}}>Cancelar</TextUnderlinedModal>
+                    <TextUnderlinedModal onPress={() => onClick()}>Cancelar</TextUnderlinedModal>
                 </ContentAppointment>
             </ViewModalAppointment>
         </Modal>
