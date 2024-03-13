@@ -1,6 +1,5 @@
 
-// import { TextName } from "../CardClinic/Style"
-import { ProfileName } from "../Card/Style"
+import { TextName } from "../CardClinic/Style"
 import { Container, ImageDoctor, TextEspec, ViewData } from "./Style"
 
 export const CardDoctor = ({name, espec, photo, isSelected}) => {
@@ -8,7 +7,7 @@ export const CardDoctor = ({name, espec, photo, isSelected}) => {
         <Container isSelected={isSelected}>
             <ImageDoctor source={photo}/>
             <ViewData>
-                <ProfileName>{name}</ProfileName>
+                <TextName>{name}</TextName>
                 <TextEspec>{espec}</TextEspec>
             </ViewData>
         </Container>

@@ -1,122 +1,114 @@
-import { useState } from "react";
-import { BoxInput } from "../../components/BoxInput/Index";
-import { Button, ButtonTitle } from "../../components/Button/Style";
-import {
-  Container,
-  ContainerEdit,
-  ContainerProfile,
-  RowView,
-  ViewTitle,
-} from "../../components/Container/Style";
-import { ProfileImage } from "../../components/Images/Style";
-import { SubTitle } from "../../components/SubTitle/Style";
-import { ProfileTitle } from "../../components/Title/Style";
+import { Button, Text } from "react-native"
+import { ContainerProfile, ContainerSafeEdit, ContainerScroll, ViewFormat, ViewTitle } from "../../components/Container/Style"
+import { ProfileImage } from "../../components/Images/Style"
+import { ButtonTitle, SubTitleProfile, TitleProfile } from "../../components/Title/Style"
+import { BoxInput } from "../../components/BoxInput/Index"
+import { Btn, ButtonGoOut } from "../../components/Button/Button"
+import { StatusBar } from "expo-status-bar"
+import { useState } from "react"
+import {  LinkCancelMargin } from "../../components/Link/Style"
 
-export const Profile = ({ navigation }) => {
-  const [profileEdit, setProfileEdit] = useState(false);
+export const Profile = ({navigation}) => {
 
-  return (
-    <ContainerProfile>
-      {!profileEdit ? (
-        <>
-          <ProfileImage source={require("../../assets/img/Profile.jpg")} />
+    const [profileEdit, setProfileEdit] = useState(false)
+    
 
-          <Container>
-            <ProfileTitle>Richard Kosta</ProfileTitle>
+    return (
+        <ContainerScroll>
+            {!profileEdit ? (
+                <>
 
-            <SubTitle>richard.kosta@gmail.com</SubTitle>
+                    <ProfileImage source={require("../../assets/photo.png")} />
 
-            <BoxInput
-              textLabel="Data de nascimento:"
-              placeholder="04/05/1999"
-              editable={false}
-            />
+                    <ContainerProfile>
+                        <TitleProfile>Richard Kosta</TitleProfile>
+                        <SubTitleProfile>richard.kosta@gmail.com</SubTitleProfile>
 
-            <BoxInput
-              textLabel="Data de nascimento:"
-              placeholder="04/05/1999"
-              editable={false}
-            />
+                        <BoxInput
+                            textLabel={'Data de nascimento:'}
+                            placeholder={'04/05/1999'}
+                            
+                        />
+                        <BoxInput
+                            textLabel={'CPF'}
+                            placeholder={'859********'}
+                        />
+                        <BoxInput
+                            textLabel={'Endereço'}
+                            placeholder={'Rua Vicenso Silva, 987'}
+                        />
+                        <ViewFormat>
+                            <BoxInput
+                                textLabel={'Cep'}
+                                placeholder={'06548-909'}
+                                fieldWidth={'45'}
+                            />
+                            <BoxInput
+                                textLabel={'Cidade'}
+                                placeholder={'Moema-SP'}
+                                fieldWidth={'45'}
+                            />
+                        </ViewFormat>
 
-            <BoxInput
-              textLabel="CPF"
-              placeholder="859********"
-              editable={false}
-            />
+                        <Btn onPress={() => setProfileEdit(true)}>
+                            <ButtonTitle>EDITAR</ButtonTitle>
+                        </Btn>
 
-            <RowView>
-              <BoxInput
-                fieldWidth={40}
-                textLabel="CEP"
-                placeholder="06548-909"
-                editable={false}
-              />
+                    <LinkCancelMargin onPress={() => navigation.replace("Main")}>Voltar</LinkCancelMargin>
+                    </ContainerProfile>
+                </>
+            ) : (
+                <>
+                    <ProfileImage source={require("../../assets/photo.png")} />
 
-              <BoxInput
-                fieldWidth={40}
-                textLabel="Cidade"
-                placeholder="Moema-SP"
-                editable={false}
-              />
-            </RowView>
 
-            <Button>
-              <ButtonTitle>SALVAR</ButtonTitle>
-            </Button>
+                    <ViewTitle>
+                        <TitleProfile>Richard Kosta</TitleProfile>
+                        <SubTitleProfile>richard.kosta@gmail.com</SubTitleProfile>
+                    </ViewTitle>
 
-            <Button onPress={() => setProfileEdit(true)}>
-              <ButtonTitle>EDITAR</ButtonTitle>
-            </Button>
-          </Container>
-        </>
-      ) : (
-        <>
-          <ProfileImage source={require("../../assets/img/Profile.jpg")} />
-          <ViewTitle>
-            <ProfileTitle>Richard Kosta</ProfileTitle>
-            <SubTitle>richard.kosta@gmail.com</SubTitle>
-          </ViewTitle>
-          <ContainerEdit>
-            <BoxInput
-              textLabel="Data de nascimento:"
-              placeholder="04/05/1999"
-              editable={true}
-            />
+                    <ContainerSafeEdit>
+                        <BoxInput
+                            textLabel={'Data de nascimento:'}
+                            placeholder={'04/05/1999'}
+                            editable={true}
 
-            <BoxInput
-              textLabel="CPF"
-              placeholder="859********"
-              editable={true}
-            />
+                        />
+                        <BoxInput
+                            textLabel={'CPF'}
+                            placeholder={'859********'}
+                            editable={true}
+                        />
+                        <BoxInput
+                            textLabel={'Endereço'}
+                            fieldValue={'Rua Vicenso Silva, 987'}
+                            editable={true}
+                        />
+                        <ViewFormat>
+                            <BoxInput
+                                textLabel={'Cep'}
+                                placeholder={'06548-909'}
+                                fieldWidth={'45'}
+                                editable={true}
+                            />
+                            <BoxInput
+                                textLabel={'Cidade'}
+                                placeholder={'Moema-SP'}
+                                fieldWidth={'45'}
+                                editable={true}
 
-            <BoxInput
-              textLabel="CPF"
-              placeholder="859********"
-              editable={true}
-            />
+                            />
+                        </ViewFormat>
 
-            <RowView>
-              <BoxInput
-                fieldWidth={40}
-                textLabel="CEP"
-                placeholder="06548-909"
-                editable={true}
-              />
+                        <Btn onPress={() => setProfileEdit(false)}>
+                            <ButtonTitle>SALVAR</ButtonTitle>
+                        </Btn>
 
-              <BoxInput
-                fieldWidth={40}
-                textLabel="Cidade"
-                placeholder="Moema-SP"
-                editable={true}
-              />
-            </RowView>
+                        <LinkCancelMargin onPress={() => { setProfileEdit(false) }}>Cancelar Edição</LinkCancelMargin>
 
-            <Button onPress={() => setProfileEdit(false)}>
-              <ButtonTitle>SALVAR</ButtonTitle>
-            </Button>
-          </ContainerEdit>
-        </>
-      )}
-    </ContainerProfile>
-  );
-};
+                    </ContainerSafeEdit>
+                </>
+            )}
+        </ContainerScroll>
+    )
+}

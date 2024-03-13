@@ -1,138 +1,179 @@
-// Imports Navigation
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Navigation } from './src/screens/Navigation/Navigation';
+import { Login } from './src/screens/Login/Login';
+import { Register } from './src/screens/Register/Register';
+import { VerifyEmail } from './src/screens/VerifyEmail/VerifyEmail';
+import { ResetPwd } from './src/screens/ResetPwd/ResetPwd';
+import { Recover } from './src/screens/Recover/Recover';
+import { Profile } from './src/screens/Profile/Profile';
 
-// Componentes
-import { Navigation } from "./src/screens/Navigation/Navigation";
-import { Login } from "./src/screens/Login/Login";
-import { Register } from "./src/screens/Register/Register";
-import { EmailCode } from "./src/screens/EmailCode/EmailCode";
-import { RecoverPassword } from "./src/screens/RecoverPassword/RecoverPassword";
-import { RedefinePassword } from "./src/screens/RedefinePassword/RedefinePassword";
-import { Profile } from "./src/screens/Profile/Profile";
+const Stack = createNativeStackNavigator()
 
-// Import das Fonts
-import { useFonts } from "expo-font";
-import {
-  MontserratAlternates_600SemiBold,
-  MontserratAlternates_500Medium,
-} from "@expo-google-fonts/montserrat-alternates";
-import {
-  Quicksand_400Regular,
-  Quicksand_500Medium,
-  Quicksand_600SemiBold,
-} from "@expo-google-fonts/quicksand";
-import { StatusBar } from "react-native";
-import { Home } from "./src/screens/Home/Home";
-import { InsertMedicalRecord } from "./src/screens/InsertMedicalRecord/InsertMedicalRecord";
-import SelectClinic from "./src/screens/SelectClinic/SelectClinic";
-import { SelectDoctor } from "./src/screens/SelectDoctor/SelectDoctor";
-import { SelectDate } from "./src/screens/SelectDate/SelectDate";
-import { Main } from "./src/screens/Main/Main";
+import { useFonts, MontserratAlternates_600SemiBold, MontserratAlternates_500Medium, MontserratAlternates_700Bold } from '@expo-google-fonts/montserrat-alternates';
+import { Quicksand_500Medium, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand';
+import { MedicalRecord } from './src/screens/MedicalRecord/MedicalRecord';
+import { Home } from './src/screens/Home/Home';
+import { SelectClinic } from './src/screens/SelectClinic/SelectClinic';
+import { SelectDoctor } from './src/screens/SelectDoctor/SelectDoctor';
+import { SelectDate } from './src/screens/SelectDate/SelectDate';
+import { SeeLocalAppointment } from './src/screens/SeeLocalAppointment/SeeLocalAppointment';
+import { SeePrescription } from './src/screens/SeePrescription/SeePrescription';
+import { Main } from './src/screens/Main/Main';
+import { InsertRecord } from './src/screens/InsertRecord/InsertRecord';
 
-// Instancia do StackNavigator
-const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // Instancia das fonts usando useFonts
+  ''
+
   const [fontsLoaded, fontsError] = useFonts({
     MontserratAlternates_600SemiBold,
     MontserratAlternates_500Medium,
+    MontserratAlternates_700Bold,
     Quicksand_500Medium,
     Quicksand_600SemiBold,
-    Quicksand_400Regular,
-  });
+    Quicksand_400Regular
+  })
 
-  // Validacao carregamento da font
   if (!fontsLoaded && !fontsError) {
-    return null;
+    return null
   }
 
   return (
-    // Navegação
-    // Container
-    // StackNavigation
-    // StackSecreen
 
-    // Envolve a estrutura da navegação
+    // Envolve a estrutura da navegacao
     <NavigationContainer>
-      <StatusBar />
-      {/* componente para navegação */}
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        {/* <Stack.Screen
-        // nome da tela
-        name='Navigation'
-        // componente que sera renderizado
-        component={Navigation}
-        // titulo da pagina
-        options={{title: 'Navigation'}}
-        /> */}
+
+      <Stack.Navigator screenOptions={{
+        headerShown: false
+      }}>
         <Stack.Screen
           name="Login"
+
           component={Login}
-          options={{ title: "Login" }}
+
+          options={{ title: 'Login' }}
         />
-        <Stack.Screen name="Main" component={Main} />
-        
 
         <Stack.Screen
-          name="Home"
+          name='Main'
+
+          component={Main}
+
+
+        />
+
+        {/* <Stack.Screen
+          name='Navigation'
+
+          component={Navigation}
+
+          options={{ title: 'Navigation' }}
+        /> */}
+
+        <Stack.Screen
+          name='Home'
+
           component={Home}
-          options={{ title: "Home" }}
+
+          options={{ title: 'Home' }}
         />
 
+
         <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ title: "Profile" }}
+          name="MedicalRecord"
+
+          component={MedicalRecord}
+
+          options={{ title: 'MedicalRecord' }}
+        />
+        <Stack.Screen
+          name="InsertRecord"
+
+          component={InsertRecord}
+
+          options={{ title: 'InsertRecord' }}
         />
 
         <Stack.Screen
           name="Register"
+
           component={Register}
-          options={{ title: "Register" }}
-        />
-        <Stack.Screen
-          name="EmailCode"
-          component={EmailCode}
-          options={{ title: "EmailCode" }}
-        />
-        <Stack.Screen
-          name="RecoverPassword"
-          component={RecoverPassword}
-          options={{ title: "RecoverPassword" }}
-        />
-        <Stack.Screen
-          name="RedefinePassword"
-          component={RedefinePassword}
-          options={{ title: "RedefinePassword" }}
-        />
-        <Stack.Screen
-          name="InsertMedicalRecord"
-          component={InsertMedicalRecord}
-          options={{ title: "InsertMedicalRecord" }}
+
+          options={{ title: 'Register' }}
         />
 
         <Stack.Screen
+          name="Profile"
+
+          component={Profile}
+
+          options={{ title: 'Profile' }}
+        />
+
+        <Stack.Screen
+          name="Recover"
+
+          component={Recover}
+
+          options={{ title: 'Recover' }}
+        />
+
+        <Stack.Screen
+          name="VerifyEmail"
+
+          component={VerifyEmail}
+
+          options={{ title: 'VerifyEmail' }}
+        />
+
+        <Stack.Screen
+          name="ResetPwd"
+
+          component={ResetPwd}
+
+          options={{ title: 'ResetPwd' }}
+        />
+        <Stack.Screen
           name="SelectClinic"
+
           component={SelectClinic}
-          options={{ title: "SelectClinic" }}
+
+          options={{ title: 'SelectClinic' }}
         />
         <Stack.Screen
           name="SelectDoctor"
+
           component={SelectDoctor}
-          options={{ title: "SelectDoctor" }}
+
+          options={{ title: 'SelectDoctor' }}
         />
         <Stack.Screen
           name="SelectDate"
+
           component={SelectDate}
-          options={{ title: "SelectDate" }}
+
+          options={{ title: 'SelectDate' }}
+        />
+
+        <Stack.Screen
+          name="SeeLocalAppointment"
+
+          component={SeeLocalAppointment}
+
+          options={{ title: 'SeeLocalAppointment' }}
+        />
+        <Stack.Screen
+          name="SeePrescription"
+
+          component={SeePrescription}
+
+          options={{ title: 'SeePrescription' }}
         />
       </Stack.Navigator>
+
     </NavigationContainer>
+
   );
 }
+

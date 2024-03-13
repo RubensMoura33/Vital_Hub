@@ -1,13 +1,21 @@
-import styled from "styled-components";
-import { TextUnderlined, Title } from "../../components/Title/Style";
-import { Button } from "../../components/Button/Style";
+import styled from "styled-components"
+import { LinkCancel } from "../../components/Link/Style"
 
-export const TitleSelect = styled(Title)`
-    margin-top: 100px;
+export const Title = styled.Text`
+font-size: 25px;
+color: #33303e;
+font-family: "MontserratAlternates_600SemiBold";
+margin-bottom: 10px;
+margin-top: 120px;  
+align-self: center;
 `
-export const ButtonClinic = styled(Button)`
-    
+
+export const Cancel = styled(LinkCancel)`
+margin-bottom: 60px;
 `
-export const TextCancel = styled(TextUnderlined)`
-    margin-bottom: 60px;
+
+export const BtnSelect = styled.TouchableOpacity`
+align-self: center;
+height: 120px;
+
 `

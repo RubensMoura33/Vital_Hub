@@ -1,16 +1,14 @@
-import { CalendarHome } from "../CalendarHome/CalendarHome";
-import { ContainerHeader } from "../Container/Style";
-import { BoxUser, DataUser, ImageUser, NameUser, NotifyContainer, TextDefault } from "./Style";
-import { MaterialIcons } from "@expo/vector-icons";
+import { BoxUser, ContainerHeader, DataUser, ImageUser, NameUser, TextDefault } from "./Style"
+import {MaterialIcons} from "@expo/vector-icons"
 
-export const Header = ({name}) => {
-  return (
-    <ContainerHeader>
-        <BoxUser>
-          <ImageUser source={{ uri: "https://avatars.githubusercontent.com/u/125362626?v=4" }} />
+export const Header = ({nome, ProfileImage, onPress}) => {
+    return (
+        <ContainerHeader>
+        <BoxUser onPress={onPress}>
+          <ImageUser source={ProfileImage} />
           <DataUser>
-            <TextDefault>Bem vindo</TextDefault>
-            <NameUser>{name}</NameUser>
+            <TextDefault>Bem vindo !</TextDefault>
+            <NameUser>{nome}</NameUser>
           </DataUser>
         </BoxUser>
 
@@ -18,5 +16,5 @@ export const Header = ({name}) => {
         <MaterialIcons name="notifications" size={25} color="#fbfbfb" />
     
     </ContainerHeader>
-  );
-};
+    )
+}

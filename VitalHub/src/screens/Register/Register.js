@@ -1,40 +1,35 @@
-// Componentes estilizados
-import { Container, SubTitleView } from "../../components/Container/Style";
-import { Logo } from "../../components/Logo/Style";
-import { TextUnderlined, Title } from "../../components/Title/Style";
-import { SubTitle } from "../../components/SubTitle/Style";
-import { Input } from "../../components/Input/Style";
-import { Button, ButtonTitle } from "../../components/Button/Style";
+import { Text } from "react-native"
+import { Container } from "../../components/Container/Style"
+import { Logo } from "../../components/Logo/Style"
+import { ButtonTitle, TextRec, Title } from "../../components/Title/Style"
+import { Input } from "../../components/Input/Style"
+import { Btn } from "../../components/Button/Button"
+import { LinkCancel } from "../../components/Link/Style"
 
-export const Register = ({ navigation }) => {
+export const Register = ({navigation}) => {
+
+    async function Register() {
+        navigation.replace("Main")
+    }
+
     return(
         <Container>
-            <Logo  source={require("../../assets/img/VitalHub_Logo 1.png")}/>
+            <Logo source={require('../../assets/logo.png')}></Logo>
 
             <Title>Criar conta</Title>
 
-            <SubTitleView>
-            <SubTitle>Insira seu endereço de e-mail e senha para realizar seu cadastro.</SubTitle>
-            </SubTitleView>
+            <TextRec>Insira seu endereço de e-mail e senha para realizar seu cadastro.</TextRec>
 
-            <Input 
-            placeholder='Usuário ou E-mail'
-            />
+            <Input placeholder={"Usuario ou Email"}/>
+            <Input placeholder={"Senha"}/>
+            <Input placeholder={"Confirmar senha"}/>
 
-            <Input 
-            placeholder='Senha' 
-            secureTextEntry/>
-
-            <Input 
-            placeholder='Confirmar Senha'             
-            secureTextEntry/>
-
-            <Button>
+            <Btn onPress={() => Register()}>
                 <ButtonTitle>CADASTRAR</ButtonTitle>
-            </Button>
+            </Btn>
 
-                <TextUnderlined onPress={() => navigation.navigate("Login")}>Cancelar</TextUnderlined>       
+            <LinkCancel onPress={() => navigation.navigate("Login")}>Cancelar</LinkCancel>
 
         </Container>
-    );
+    )
 }

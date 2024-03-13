@@ -1,47 +1,51 @@
-// Componentes estilizados
-import { Button, ButtonGoogle, ButtonTitle, ButtonTitleGoogle, IconGoogle } from "../../components/Button/Style";
-import { Container, ContentAccount } from "../../components/Container/Style";
-import { Input } from "../../components/Input/Style";
-import { LinkMedium } from "../../components/Links/Style";
-import { Logo } from "../../components/Logo/Style";
-import { TextAccount, TextLink, Title } from "../../components/Title/Style";
 
+import { Container, ContentAccount } from "../../components/Container/Style"
+import { Logo } from "../../components/Logo/Style"
+import { ButtonGoogleTitle, ButtonTitle, ImgGoogle, TextAccount, Title } from "../../components/Title/Style"
+import { Input } from "../../components/Input/Style"
+import { LinkCreate, LinkMedium } from "../../components/Link/Style"
+import { Btn, BtnGoogle } from "../../components/Button/Button"
+import { Keyboard, TouchableWithoutFeedback } from "react-native"
+import { AntDesign } from '@expo/vector-icons';
 
 export const Login = ({ navigation }) => {
 
-    async function Login (){
+    async function Login() {
         navigation.replace("Main")
     }
-    return(
-        <Container>
-            
-            <Logo source={require("../../assets/img/VitalHub_Logo 1.png")}/>
 
-            <Title>Entrar ou criar conta</Title>
+    return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <Container>
 
-            <Input
-            placeholder='Usuário ou E-mail'/>
+                <Logo source={require('../../assets/logo.png')} />
 
-            <Input
-            placeholder='Senha'
-            secureTextEntry/>
+                <Title>Entrar ou criar conta</Title>
 
-            <LinkMedium onPress={() => navigation.navigate("RecoverPassword")}>Esqueceu sua senha?</LinkMedium>
 
-             <Button onPress={() => Login()}>
-                <ButtonTitle>ENTRAR</ButtonTitle>                
-            </Button>
 
-            <ButtonGoogle>
-                <IconGoogle source={require("../../assets/icons/GOOGLE.png")}/>
-                <ButtonTitleGoogle>ENTRAR COM GOOGLE</ButtonTitleGoogle>
-            </ButtonGoogle>
+                <Input placeholder={"Usuário ou E-mail"} />
+                <Input placeholder={"Senha"} />
 
-            <ContentAccount>
-                <TextAccount>Não tem conta? <TextLink onPress={() => navigation.navigate("Register")}>Crie uma conta agora!</TextLink></TextAccount>
-            </ContentAccount> 
+                <LinkMedium onPress={() => navigation.navigate("Recover")} >Esqueceu sua senha?</LinkMedium>
 
-        </Container>
 
-    );
-}
+                <Btn onPress={() => Login()}>
+                    <ButtonTitle>ENTRAR</ButtonTitle>
+                </Btn>
+
+                <BtnGoogle>
+                    <AntDesign name="google" size={21} color="#496BBA" />
+                    <ButtonGoogleTitle>ENTRAR COM GOOGLE</ButtonGoogleTitle>
+                </BtnGoogle>
+
+                <ContentAccount>
+                    <TextAccount>Nao tem Conta?</TextAccount>
+                    <LinkCreate onPress={() => navigation.navigate("Register")}>Crie uma conta agora!</LinkCreate >
+
+                </ContentAccount>
+
+            </Container>
+        </TouchableWithoutFeedback>
+    )
+}   

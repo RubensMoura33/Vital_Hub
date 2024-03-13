@@ -1,6 +1,6 @@
 import { Calendar, LocaleConfig } from 'react-native-calendars';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { DayContainer, DayText } from './Style';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 LocaleConfig.locales['br'] = {
     monthNames: [

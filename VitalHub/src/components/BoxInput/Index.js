@@ -1,33 +1,37 @@
-import { InputProfile } from "../Input/Style"
-import { InputLabel } from "../Label/Style"
-import { Content } from "./Style"
+
+import { FieldContent, InputLabel, InputText, InputTextModificate } from "./Style"
+
+
 
 export const BoxInput = ({
     fieldWidth = 100,
     textLabel,
     placeholder,
-    value = null,
-    editable,
-    borderStyle,
-    fieldHeight,
-    textColor,
-    paddingBottom
+    fieldValue,
+    fieldHeight = 60,
+    editable = false,
+    multiline = false,
+    marginBottom = 40,
+    insertRecord = false
 }) => {
-    return(
-        <Content fieldWidth={fieldWidth}>
+    return (
+        <FieldContent fieldWidth={fieldWidth} marginBottom={marginBottom}>
 
-        <InputLabel>{textLabel}</InputLabel>
+            <InputLabel >{textLabel}</InputLabel>
+            {insertRecord ? (
+                <>
+                <InputTextModificate 
+                placeholder={placeholder} value={fieldValue} editable={editable}
+                fieldHeight={fieldHeight} multiline={multiline}/>
+                </>
+            ) : (
+                <>
+                <InputText placeholder={placeholder} value={fieldValue} editable={editable}
+                fieldHeight={fieldHeight} multiline={multiline} />
+                </>
+            )}
+            
 
-        <InputProfile
-        fieldHeight={fieldHeight}
-        placeholder={placeholder}
-        value={value}
-        editable={editable}
-        borderStyle={borderStyle}
-        textColor={textColor}
-        paddingBottom={paddingBottom}
-        />
-
-        </Content>
+        </FieldContent>
     )
 }

@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.View`
 flex-direction: row;
-width: 90%;
-height: 120px;
+width: 320px;
+height: 100px;
 margin-top: 20px;
 border-radius: 7px;
 background-color:#fff ;
 box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.08);
-align-self: center;
 border: ${props => props.isSelected ? '3px solid #496BBA' : 'none'};
 `
 

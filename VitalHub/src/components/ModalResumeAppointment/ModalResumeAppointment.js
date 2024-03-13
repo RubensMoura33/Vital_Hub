@@ -1,54 +1,49 @@
 import { Modal } from "react-native"
-import { ContentAppointment, TextUnderlinedModal, ViewModalAppointment } from "../ModalAppointment/Style"
-import { Title } from "../Title/Style"
-import { ButtonModal, SubTitleModal, TextData, TitleData, TitleModal, ViewData } from "./Style"
-import { SubTitle } from "../SubTitle/Style"
-import { Button, ButtonTitle } from "../Button/Style"
+import { ContentModal, TextData, TitleData, ViewData, ViewModal } from "./Style"
+import { ButtonTitle, SubTitleModalResume, TitleProfile } from "../Title/Style"
+import { LinkCancelMargin } from "../Link/Style"
+import { Btn } from "../Button/Button"
 
-export const ModalResumeAppointment = ({navigation,
-    visible,
-    setShowModalResume,
-    ...rest
-}) => {
-    function onClick () {
-        navigation.navigate("Home")
-        setShowModalResume(false)
-    }
-    return(
+export const ModalResumeAppointment = ({ dataConsulta, horarioConsulta, navigation, visible, setShowModalResume, ...rest }) => {
+
+    async function onPressHandle() {
+        await setShowModalResume(false)
+        navigation.replace("Main");
         
-        <Modal {...rest} visible={visible} transparent={true} animationType="fade">
-            <ViewModalAppointment>
-                <ContentAppointment>
-                    <TitleModal>Agendar consulta</TitleModal>
-                    <SubTitleModal>Consulte os dados selecionados para a sua consulta</SubTitleModal>
+    }
 
-                    <ViewData>
-                    <TitleData>Data da consulta</TitleData>
-                    <TextData>1 de Novembro de 2023</TextData>
-                    </ViewData>
+    return (
+        <Modal {...rest} visible={visible} transparent={true} animationType="fade" animationsOutTiming={0}>
+            <ViewModal>
+                <ContentModal>
+                    <TitleProfile>Agendar Consulta</TitleProfile>
 
-                    <ViewData>
-                    <TitleData>Médico(a) da consulta</TitleData>
-                    <TextData>Dra Alessandra</TextData>
-                    <TextData>Demartologa, Esteticista</TextData>
-                    </ViewData>
+                    <SubTitleModalResume>Consulte os dados selecionados para a sua consulta</SubTitleModalResume>
 
-                    <ViewData>
-                    <TitleData>Local da consulta</TitleData>
-                    <TextData>São Paulo, SP</TextData>
+                    <ViewData fieldHeight={50}>
+                        <TitleData>Data da consulta</TitleData>
+                        <TextData>{dataConsulta} {horarioConsulta}</TextData>
                     </ViewData>
-                    
-                    <ViewData>
-                    <TitleData>Tipo da consulta</TitleData>
-                    <TextData>Rotina</TextData>
+                    <ViewData fieldHeight={80}>
+                        <TitleData>Médico(a) da consulta</TitleData>
+                        <TextData>Dra Alessandra</TextData>
+                        <TextData>Demartologa, Esteticista</TextData>
                     </ViewData>
-
-                    <ButtonModal onPress={() => onClick()}>
+                    <ViewData fieldHeight={50}>
+                        <TitleData>Local da consulta</TitleData>
+                        <TextData>São Paulo, SP</TextData>
+                    </ViewData>
+                    <ViewData fieldHeight={50}>
+                        <TitleData>Tipo da consulta</TitleData>
+                        <TextData>Rotina</TextData>
+                    </ViewData>
+                    <Btn onPress={() => onPressHandle()}>
                         <ButtonTitle>CONFIRMAR</ButtonTitle>
-                    </ButtonModal>
-                    <TextUnderlinedModal onPress={() => onClick()}>Cancelar</TextUnderlinedModal>
-                </ContentAppointment>
-            </ViewModalAppointment>
+                    </Btn>
+
+                    <LinkCancelMargin onPress={() => setShowModalResume(false)}>Cancelar</LinkCancelMargin>
+                </ContentModal>
+            </ViewModal>
         </Modal>
     )
 }

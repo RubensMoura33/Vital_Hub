@@ -33,7 +33,7 @@ height: 60%;
 justify-content: space-evenly;
 `
 export const ProfileName = styled(Title)`
-font-size: 18px;
+font-size: 16px;
 `
 
 export const ProfileData = styled.View`
@@ -44,25 +44,25 @@ align-items: center;
 
 export const TextAge = styled.Text`
 font-size: 15px;
-color: #8c8a97;
+color: #8C8A97;
 font-family: 'Quicksand_400Regular';
 `
 
 export const TextBold = styled(TextAge)`
 font-family: 'Quicksand_600SemiBold';
-
+color: ${(props) => props.status == "agendada" ? "#49B3BA" : "#4E4B59"};
 `
 
 export const ViewRow = styled.View`
 height: 40%;
 flex-direction: row;
-padding-right: 25px;
+padding-right: 15px;
 align-items: flex-end;
 justify-content: space-between;
 `
 
 export const ClockCard = styled.View`
-background-color: ${props => props.situacao == 'pendente' ? '#E8FCFD' : '#F1F0F5'};
+background-color: ${props => props.status == 'agendada' ? '#E8FCFD' : '#F1F0F5'};
 height: 25px;
 width: 100px;
 flex-direction: row;
@@ -77,8 +77,9 @@ export const ButtonCard = styled.TouchableOpacity`
 `
 
 export const ButtonText = styled.Text`
-font-size: 16px;
-color: ${(props) => props.situacao == "pendente" ? "#c81d25" : "#344f8f"}
+font-family: 'MontserratAlternates_500Medium';
+font-size: 14px;
+color: ${(props) => props.status == "agendada" ? "#c81d25" : "#344f8f"};
 `
 
 export const ImagePoint = styled.Image`

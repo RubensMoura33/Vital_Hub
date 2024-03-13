@@ -1,54 +1,81 @@
-import styled, { css } from "styled-components";
-import { Title } from "../Title/Style";
-import { ButtonText } from "../ButtonHome/Style";
-import { Button } from "../Button/Style";
+import styled, { css } from "styled-components"
 
-export const ViewModalSchedule = styled.View`
+export const ViewModal = styled.View`
 flex: 1;
 background-color: rgba(0, 0, 0, 0.5);
 align-items: center;
 justify-content: flex-end;
+
 `
-export const ViewContent = styled.View`
-width: 100%;
-height: 80%;
-align-items: center;
-border-top-right-radius: 10px;
-border-top-left-radius: 10px;
+
+export const ContentModal = styled.View`
 background-color: white;
+padding: 20px;
+border-radius: 10px;
+width: 100%;
+height: 75%;
+align-items: center;
+
 `
 
-export const TitleModal = styled(Title)`
-margin-top:60px;
-`
-export const ButtonModal = styled.TouchableOpacity`
-    width: 27%;
-    border-radius: 5px;
-    height: 55px;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
 
-    ${props => props.clickButton ? css`
-    background-color: #60BFC5;
-  `: css`
-    background-color: transparent;
-    border: 2px solid #60BFC5;
-  `}
+export const TypeAppointment = styled.View`
+width: 90%;
+height: 250px;
+margin-bottom: 15px;   
+margin-top: 10px;
 `
-export const ViewRow = styled.View`
+
+export const RowContainerButton = styled.View`
 flex-direction: row;
-gap: 20px;
+width: 100%;
+height: 55px;
+justify-content: space-between;
 `
 
-export const ButtonTextModal = styled(ButtonText)`
-
-${props => props.clickText ? css`
-    color: #fbfbfb;
-  `: css`
-  color: #60BFC5;
-  `}
+export const SmallButton = styled.TouchableOpacity`
+width: 30%;
+border-radius: 5px;
+border: #60BFC5;
+border-width: 2px;
+align-items: center;
+justify-content: center;
+background-color: ${props => props.isSelected ? '#60BFC5' : 'transparent'};
 `
-export const ButtonContinue = styled(Button) `
-    margin-top: 200px;
+
+export const BlueTitle = styled.Text`
+font-family: 'MontserratAlternates_600SemiBold';
+color: #34898F;
+font-size: 15px;
+`
+
+
+export const InputAppointment = styled.TextInput.attrs({
+    placeholderTextColor: '#34898F'
+})`
+padding: 10px;
+margin-bottom: 0px;
+border: 2px #60BFC5;
+border-radius: 5px;
+height: 65px;
+justify-content: center;
+font-family: 'MontserratAlternates_600SemiBold';
+font-size: 15px
+`
+
+export const OptionsContainer = styled.View`
+gap: 5px;
+margin-bottom: 15px;
+background-color: 	#DCDCDC;
+`
+
+export const Option = styled.TouchableOpacity`
+padding: 10px;
+border: #60BFC5;
+border-radius: 5px;
+`
+
+export const TextOption = styled.Text`
+font-family: 'MontserratAlternates_700Bold';
+color: #34898F;
 `

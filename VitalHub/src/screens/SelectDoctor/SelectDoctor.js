@@ -1,19 +1,18 @@
 import { useState } from "react"
-import { Container } from "../../components/Container/Style";
-import { TextCancel, TitleSelect } from "../SelectClinic/Style";
-import { ListComponent } from "../../components/List/Style";
-import { TouchableOpacity } from "react-native";
-import { CardDoctor } from "../../components/CardDoctor/CardDoctor";
-import { ButtonDoctor } from "./Style.js";
-import { ButtonTitle } from "../../components/Button/Style.js";
-
+import { Btn } from "../../components/Button/Button"
+import { CardDoctor } from "../../components/CardDoctor/CardDoctor"
+import { Container } from "../../components/Container/Style"
+import { ListComponent } from "../../components/List/List"
+import { ButtonTitle } from "../../components/Title/Style"
+import { BtnSelect, Cancel, Title } from "../SelectClinic/Style"
+import { ModalSchedule } from "../../components/ModalSchedule/ModalSchedule"
 
 
 const Medicos = [
-    { id: 1, nome: "Dra Alessandra", Especialidade: "Demartologa, Esteticista", Foto: require("../../assets/img/nicole.png") },
-    { id: 2, nome: "Dr Kumushiro", Especialidade: "Cirurgião, Cardiologista", Foto: require("../../assets/img/medico.png") },
-    { id: 3, nome: "Dr Rodrigo Santos", Especialidade: "Clínico, Pediatra", Foto: require("../../assets/img/photo.png") },
-    { id: 4, nome: "Dr Igor Coronado", Especialidade: "Oftamologista", Foto: require("../../assets/img/igor-caique-coronado-no-corinthians_2g.jpg") },
+    { id: 1, nome: "Dra Alessandra", Especialidade: "Demartologa, Esteticista", Foto: require("../../assets/nicole.png") },
+    { id: 2, nome: "Dr Kumushiro", Especialidade: "Cirurgião, Cardiologista", Foto: require("../../assets/medico.png") },
+    { id: 3, nome: "Dr Rodrigo Santos", Especialidade: "Clínico, Pediatra", Foto: require("../../assets/photo.png") },
+    { id: 4, nome: "Dr Gabriel Gab", Especialidade: "Oftamologista", Foto: require("../../assets/gab.jpg") },
 
 ]
 
@@ -22,29 +21,43 @@ const Medicos = [
 export const SelectDoctor = ({ navigation }) => {
 
     const [selectedDoctor, setSelectedDoctor] = useState(null);
+    const [showModalSchedule, setShowModalSchedule] = useState(false)
+
+    const onPressHandle = () => {
+        setShowModalSchedule(true)
+        navigation.navigate("Main");
+
+    }
+
 
     return (
         <Container>
-            <TitleSelect>Selecionar Medico</TitleSelect>
+            <Title>Selecionar Medico</Title>
 
             {<ListComponent
                 data={Medicos}
                 renderItem={({ item }) =>
                 (
-                    <TouchableOpacity onPress={() => setSelectedDoctor(item.id)}>
+                    <BtnSelect onPress={() => setSelectedDoctor(item.id)}>
                         <CardDoctor name={item.nome}
                             espec={item.Especialidade}
                             photo={item.Foto}
                             isSelected={item.id == selectedDoctor}
                         />
-                    </TouchableOpacity>
+                    </BtnSelect>
                 )}
             />}
 
-            <ButtonDoctor onPress ={() => navigation.navigate("SelectDate")}>
+            <ModalSchedule
+                visible={showModalSchedule}
+                navigation={navigation}
+                setShowModalSchedule={setShowModalSchedule}
+            />
+
+            <Btn onPress={() => navigation.replace("SelectDate")}>
                 <ButtonTitle>CONTINUAR</ButtonTitle>
-            </ButtonDoctor>
-            <TextCancel onPress={() => { navigation.navigate("UserHome") }}>Cancelar</TextCancel>
+            </Btn>
+            <Cancel onPress={() => onPressHandle()}>Cancelar</Cancel>
         </Container>
     )
 }
