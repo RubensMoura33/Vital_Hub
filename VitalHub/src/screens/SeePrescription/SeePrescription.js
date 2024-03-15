@@ -6,8 +6,26 @@ import { BtnProfile, SubtitleRecord, TitleCancelPhoto, TitleProfile } from "../.
 import { BtnCancelPhoto, BtnInsertPhoto } from "../../components/Button/Button"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinkCancelMargin } from "../../components/Link/Style"
+import { useState } from "react"
+import { Image } from "react-native"
 
-export const SeePrescription = ({navigation}) => {
+export const SeePrescription = ({navigation, route}) => {
+
+
+    const { photoUri} = route.params || {}
+    const [isPhoto, setIsPhoto] = useState(true)
+    
+
+    function onPressPhoto() {
+        navigation.navigate("CameraRecord");
+        setIsPhoto(true)
+    }
+
+    function onPressCancel() {
+        setIsPhoto(false);
+        route.params = null
+    }
+
     return(
         <ContainerScroll>
         <DoctorImage source={require("../../assets/doctor.png")}/>
@@ -37,21 +55,27 @@ export const SeePrescription = ({navigation}) => {
                 placeholder={`Medicamento: Advil Dosagem: 50 mg Frequência: 3 vezes ao dia Duração: 3 dias`}
                 fieldHeight={150}
             />
-            <BoxInput
-                textLabel={"Exames médicos"}
-                placeholder={`Nenhuma foto informada`}
-                fieldHeight={150}
-                marginBottom={0}
-            />
-
+{
+                    photoUri && isPhoto ?
+                        <Image
+                            style={{ width: '100%', height: 500, borderRadius: 10 }}
+                            source={{ uri: photoUri }}
+                        /> :
+                        <BoxInput
+                            textLabel={"Exames médicos"}
+                            placeholder={`Nenhuma foto informada`}
+                            fieldHeight={150}
+                            marginBottom={0}
+                        />
+}
             <ViewInsertPhoto>
                 
-                <BtnInsertPhoto>
+                <BtnInsertPhoto onPress={() => onPressPhoto()}>
                     <MaterialCommunityIcons name="camera-plus-outline" size={26} color="white" />
                     <BtnProfile>Enviar</BtnProfile>
                 </BtnInsertPhoto>
-                <BtnCancelPhoto>
-                    <TitleCancelPhoto>Cancelar</TitleCancelPhoto>
+                <BtnCancelPhoto  onPress={() => onPressCancel()}>
+                    <TitleCancelPhoto >Cancelar</TitleCancelPhoto>
                 </BtnCancelPhoto>
 
             </ViewInsertPhoto>
@@ -65,9 +89,13 @@ export const SeePrescription = ({navigation}) => {
                 marginBottom={0}
             />
 
+
+
             <LinkCancelMargin onPress={() => {navigation.replace("Main")}}>Voltar</LinkCancelMargin>
 
             </ContainerProfile>
         </ContainerScroll>
+
+
     )
 }
